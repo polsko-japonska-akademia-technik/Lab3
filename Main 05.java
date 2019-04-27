@@ -1,69 +1,94 @@
-// autorzy Adrian Witkowski & Matyszczak
-// data wykonania 6.04.2019
-// cel: Account
+// autorzy: Adrian Witkowski
+// data wykonania: 27.04.2019
+// cel: Time
 
-public class Time {
-    private int hour;
-    private int minute;
-    private int second;
+public class Time
+{
+    private int hour, second, minute;
 
-    public int Time(int hour, int minute, int second) {
+    public Time(int hour, int minute, int second)
+    {
         this.hour = hour;
-        this.minute = minute;
         this.second = second;
+        this.minute = minute;
     }
 
-    public Time() {
-        this.hour = 0;
-        this.minute = 0;
-        this.second = 0;
-
-    }
-
-    public int getHour() {
+    public int getHour()
+    {
         return this.hour;
     }
 
-    public int getMinute() {
+    public int getMinute()
+    {
         return this.minute;
     }
 
-    public int getSecound() {
+    public int getSecond()
+    {
         return this.second;
     }
 
-    public void setHour(int hour) {
+    public void setHour(int hour)
+    {
         this.hour = hour;
     }
 
-    public void setSecond(int second) {
-        this.second = second;
-    }
-
-    public void setMinute(int minute) {
+    public void setMinute(int minute)
+    {
         this.minute = minute;
     }
 
-    public void setTime(int hour, int minute, int second) {
+    public void setSecond(int second)
+    {
+        this.second = second;
+    }
+
+    public void setTime(int hour, int minute, int second)
+    {
         this.hour = hour;
         this.minute = minute;
         this.second = second;
     }
 
-    public String toString() {
+    public String toString()
+    {
         return String.format("%02d:%02d:%02d", hour, minute, second);
     }
 
-    public Time nextSecond() {
-        ++second;
-        if (second >= 60) {
+    public Time nextSecond()
+    {
+        second++;
+        if (second >= 60)
+        {
             second = 0;
-            ++minute;
-            if (minute >= 60) {
+            minute++;
+            if (minute >= 60)
+            {
                 minute = 0;
-                ++hour;
-                if (hour >= 24) {
+                hour++;
+                if (hour >= 24)
+                {
                     hour = 0;
+                }
+            }
+        }
+        return this;
+    }
+
+    public Time previousSecond()
+    {
+        second--;
+        if (second < 0)
+        {
+            second = 59;
+            minute--;
+            if (minute < 0)
+            {
+                minute = 59;
+                hour--;
+                if (hour < 0)
+                {
+                    hour = 23;
                 }
             }
         }

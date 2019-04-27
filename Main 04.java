@@ -1,72 +1,57 @@
-// autorzy Adrian Witkowski & Matyszczak
+// autorzy: Matyszczak, korekty A.Witkowski
 // data wykonania 6.04.2019
 // cel: Account
 
-public class Time {
-    private int hour;
-    private int minute;
-    private int second;
+public class Date
+{
+    private int day, month, year;
 
-    public int Time(int hour, int minute, int second) {
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
+    public Date(int day, int month, int year)
+    {
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
-    public Time() {
-        this.hour = 0;
-        this.minute = 0;
-        this.second = 0;
-
+    public int getDay()
+    {
+        return this.day;
     }
 
-    public int getHour() {
-        return this.hour;
+    public int getMonth()
+    {
+        return this.month;
     }
 
-    public int getMinute() {
-        return this.minute;
+    public int getYear()
+    {
+        return this.year;
     }
 
-    public int getSecound() {
-        return this.second;
+    public void setDay(int day)
+    {
+        this.day = day;
     }
 
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setMonth(int month)
+    {
+        this.month = month;
     }
 
-    public void setSecond(int second) {
-        this.second = second;
+    public void setYear(int year)
+    {
+        this.year = year;
     }
 
-    public void setMinute(int minute) {
-        this.minute = minute;
+    public void setDate(int day, int month, int year)
+    {
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
-    public void setTime(int hour, int minute, int second) {
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
-    }
-
-    public String toString() {
-        return String.format("%02d:%02d:%02d", hour, minute, second);
-    }
-
-    public Time nextSecond() {
-        ++second;
-        if (second >= 60) {
-            second = 0;
-            ++minute;
-            if (minute >= 60) {
-                minute = 0;
-                ++hour;
-                if (hour >= 24) {
-                    hour = 0;
-                }
-            }
-        }
-        return this;
+    public String toString()
+    {
+        return String.format("%02d/%02d/%4d", day, month, year);
     }
 }
